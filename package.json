@@ -1,0 +1,12 @@
+{
+    "name": "algorithms-2nd-part",
+    "version": "1.0.0",
+    "description": "Second part of algorithms contest in Yandex-SHRI",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "author": "Vladik",
+    "license": "ISC"
+}
