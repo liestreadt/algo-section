@@ -26,28 +26,22 @@ const asd = {
     },
 };
 
-const treeDepth = (object) => {
+const treeLevel = (object) => {
     const result = [];
 
-    const helper = (obj) => {
-        if (obj.val) result.push(obj.val);
+    const queue = [object];
 
-        if (obj.left) {
-            helper(obj.left);
-        } else {
-            if (!result.includes(obj.val)) result.push(obj.val);
+    for (let i = 0; i < queue.length; i += 1) {
+        result.push(queue[i].val);
+        if (queue[i].left) {
+            queue.push(queue[i].left);
         }
-
-        if (obj.right) {
-            helper(obj.right);
-        } else {
-            if (!result.includes(obj.val)) result.push(obj.val);
+        if (queue[i].right) {
+            queue.push(queue[i].right);
         }
-    };
-
-    helper(object);
+    }
 
     return result;
-};
+}
 
-console.log(treeDepth(asd));
+console.log(treeLevel(asd));
