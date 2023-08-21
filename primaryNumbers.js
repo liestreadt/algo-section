@@ -1,14 +1,18 @@
-function isPrime(num) {
-    for (let i = 2; i < num; i++) {
-        if (num % i === 0) return false;
-    }
-    return num !== 1;
-}
 
-function getPrimes(n) {
+
+
+const primes = (n) => {
+    const arr = Array.from(Array(n), (_, index) => index + 1);
     const result = [];
-    for (let i = 2; i <= n; i++) {
-        if (isPrime(i)) result.push(i);
+    for (let i = 1; i < arr.length; i += 1) {
+        if (arr[i] !== null) {
+            result.push(arr[i]);
+            for (let j = i; j < arr.length; j += result.at(-1)) {
+                arr[j] = null;
+            }
+        }
     }
-    return result
+
+    return result;
 }
+console.log(primes(100))
